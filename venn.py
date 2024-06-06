@@ -119,9 +119,13 @@ def get_labels(data, fill=["number"]):
         for k in set_collections:
             labels[k] += str(len(set_collections[k]))
     if "percent" in fill:
-        data_size = len(data)
+        # data_size = len(data)
+        # for k in set_collections:
+            # labels[k] += "(%.1f%%)" % (100.0 * len(set_collections[k]) / data_size)
+        # Calculate total number of elements in the entire data set
+        total_elements = sum(len(d) for d in data)
         for k in set_collections:
-            labels[k] += "(%.1f%%)" % (100.0 * len(set_collections[k]) / data_size)
+            labels[k] += "(%.1f%%)" % (100.0 * len(set_collections[k]) / total_elements)
 
     return labels
 
