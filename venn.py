@@ -119,7 +119,7 @@ def get_labels(data, fill=["number"]):
         for k in set_collections:
             labels[k] += str(len(set_collections[k]))
     if "percent" in fill:
-        data_size = len(data)
+        data_size = N
         for k in set_collections:
             labels[k] += "(%.1f%%)" % (100.0 * len(set_collections[k]) / data_size)
 
